@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% block head %} <title>Sign Up</title> {% endblock %}
+{% block header %} <a class="btn btn-primary" href="/login">Log In</a> {% endblock %}
+{% block body %}
+<main class="rounded mt-3">
+	<form
+		class="bg-light container shadow rounded p-0 border"
+		action="/signup"
+		method="POST"
+	>
+		{{ form.csrf_token }}
+		<div class="border-bottom p-3 m-0">
+			<h2 class="text-muted m-0">Sign Up</h2>
+		</div>
+		<div class="p-3">
+			<fieldset class="d-flex flex-column pb-2">
+				{{ form.first_name.label }} 
+        {{ form.first_name(class="form-control") }} 
+        {% if form.first_name.errors %}
+				<div>
+					{% for error in form.email.errors %}
+					<p class="text-danger">{{ error }}</p>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</fieldset>
+
+			<fieldset class="d-flex flex-column pb-2">
+				{{ form.last_name.label }} 
+        {{ form.last_name(class="form-control") }} {%
+				if form.last_name.errors %}
+				<div>
+					{% for error in form.email.errors %}
+					<p class="text-danger">{{ error }}</p>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</fieldset>
+
+			<fieldset class="d-flex flex-column pb-2">
+				{{ form.email.label }} 
+        {{ form.email(class="form-control") }} 
+        {% if form.email.errors %}
+				<div>
+					{% for error in form.email.errors %}
+					<p class="text-danger">{{ error }}</p>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</fieldset>
+
+			<fieldset class="d-flex flex-column pb-2">
+				{{ form.password.label }} {{ form.password(class="form-control") }} {% if form.password.errors
+				%}
+				<div>
+					{% for error in form.password.errors %}
+					<p class="text-danger">{{ error }}</p>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</fieldset>
+
+			<fieldset class="d-flex flex-column pb-2">
+				{{ form.password_confirm.label }} {{ form.password_confirm(class="form-control") }} {% if
+				form.password_confirm.errors %}
+				<div>
+					{% for error in form.password_confirm.errors %}
+					<p class="text-danger">{{ error }}</p>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</fieldset>
+			<div>{{ form.submit(class="btn btn-primary w-100 pb-2") }}</div>
+		</div>
+    <div class="border-top p-3">
+      <p class="m-0">
+        Already have an account?
+        <a href="/login">Login</a>
+      </p>
+    </form>
+  </div>
+</main>
+{% endblock %}
