@@ -19,7 +19,9 @@
 		<header
 			class="bg-light sticky-top d-flex container-fluid justify-content-between p-3 border-bottom"
 		>
-			<h1 class="text-primary fw-bold">ToDo Today</h1>
+			<a class="btn p-0" href="/"
+				><h1 class="text-primary fw-bold">ToDo Today</h1></a
+			>
 			<div class="d-flex align-items-center">
 				{% if current_user.is_authenticated %}
 				<p class="m-0 text-muted">Hello, {{current_user.first_name}}</p>
